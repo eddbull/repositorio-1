@@ -1,0 +1,67 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+body {
+    font-size: 15pt;
+    color: white;
+    height: 100dvh;
+}
+div{
+  font-size: 14px;
+  color:black;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  margin: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  transition: 1s ease;
+  box-shadow:inset 0 0 3px 2px #2E2E2E, inset 0 0 1px 10px #F4F4F4, inset 0 0 5px 12px #5B5B5B, inset 0 0 2px 20px #FFFFFF, inset 0 0 5px 25px #EBEBEB, 0 0 7px 2px #303030;
+}
+div:hover{
+  box-shadow: inset 0 0 3px 2px #2E2E2E, inset 0 0 1px 10px #F4F4F4, inset 0 0 3px 15px #363636, inset 0 0 5px 20px #DEDEDE, inset 0 0 2px 25px #E3E3E3, 0 0 7px 2px #303033;
+    transition: .3s ease;
+    font-size:12px;
+}
+div, div:hover{
+  text-shadow: 0 0 2px white, 0 0 5px white;
+}
+article{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin: auto;
+  /*border: 1px solid black;*/
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  filter: brightness(1.03);
+  box-shadow:inset 0 -15px 10px 0px #8C8C8C, inset 0 -15px 15px 10px #B4B4B4, inset 0 -15px 15px 30px #E1E1E1, 0px 20px 10px -2px #242424;
+  overflow: hidden;
+}
+article:hover{
+  box-shadow: inset 0 -25px 10px 0 #8C8C8C, inset 0 -25px 15px 10px #B4B4B4, inset 0 -25px 15px 30px #E1E1E1, 0 30px 10px -2px #242424;
+  filter: brightness(1);
+  transform: translate(0,40px);
+}
+article, article:hover{
+  transition:1s ease;
+}
+article:before{
+  font-size: 14px;
+  transform: translate(0px,-15px);
+  content: "toque";
+  transition: 1s ease;
+}
+article:hover:before{
+  content: "tire";
+  text-shadow: 0 0 4px white, 0 0 8px white,0 0 12px white;
+  transform: translate(0,25px);
+}

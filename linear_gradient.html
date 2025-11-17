@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  body{
+    background: gray;
+  }
+    div{
+      border: 2px solid black;
+      height: 200px;
+      border-radius: 10px;
+      background: radial-gradient(blue 20%,red 20%);
+    }
+    article{
+      padding: 10px;
+      box-sizing: border-box;
+      width: 95%;
+      margin: 10px auto;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns:1fr 1fr ;
+      border: 1px solid black;
+      border-radius: 10px;
+      background: linear-gradient(45deg,rgba(200,0,0,.8)30%,rgba(0,150,0.8)70%);
+      height: 8ch;
+      text-align: center;
+      gap: 5px;
+    }
+    p{
+      margin: 2px;
+      text-shadow: white 0 0 2px, white 0 0 2px, white 0 0 2px;
+    }
+    input{
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div>100</div>
+    <article>
+      <input type="range" min="0" value="20.0" max="100">
+      <input type="range" min="0" value="20.0" max="100">
+      <p>azul 20</p>
+      <p>vermelho 20</p>
+    </article>
+</body>
+<script>
+  function capturar(ele,ind){
+    return document.querySelectorAll(ele)[ind];
+  }
+  function inp(ind){
+    return capturar("input",ind).value;
+  }
+  
+  let a = 0;
+  while(a<2){
+    capturar("input",a).addEventListener("input",()=>{
+      capturar("div",1).style.background = `radial-gradient(blue ${inp(0)}%,red ${inp(1)}%)`;
+      capturar("p",0).innerHTML = `azul ${capturar("input",0).value}`;
+      capturar("p",1).innerHTML = `vermelho ${capturar("input",1).value}`;
+    });
+    ++a;
+  }
+</script>
+
+</html>

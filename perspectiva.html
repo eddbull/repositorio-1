@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin:0;
+      padding: 0;
+      height: 100dvh;
+      transform-style: preserve-3d;
+      perspective: 500px;
+      background: linear-gradient(black,blue);
+    }
+    div{
+      position: relative;
+      font-family: Helvetica, sans-serif;
+      color:white;
+      transform: rotateX(50deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border:2px solid red;
+      border-radius: 15px;
+      height:200px;
+      width: 100px;
+      font-size: 18px;
+      text-shadow: 0 0 2px red;
+      box-shadow: 0 0 5px 0 red, 0 0 0 0 red;
+      background: #FF000075;
+      transition:.5s ease;
+    }
+    div:hover{
+      font-size: 20px;
+      transform: rotateX(0);
+      text-shadow: 0 0 2px white, 0 0 5px white, 3px 3px 2px black;
+      color:white;
+      box-shadow: 0 0 10px 5px red;
+    }
+    div:after{
+      height: 0;
+      width: 0;
+      z-index: -1;
+      content: "";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      background: #FF0000;
+      border-radius: 10px;
+      transition: 1s ease;
+    }
+    div:hover:after{
+      height: 175px;
+      width: 75px;
+      transition: 1s ease;
+      box-shadow: 0 0 10px 0px red, 7px 7px 5px 0 black;
+    }
+  </style>
+</head>
+
+<body>
+  <div>div</div>
+</body>
+
+</html>

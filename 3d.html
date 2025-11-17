@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100dvh;
+      color: white;
+    }
+    article{
+      transform-style: preserve-3d;
+      perspective: 800px;
+      border: 2px solid blue;
+      height: 300px;
+      width: 300px;
+      background: #00FF18AD;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    div{
+      height: 100px;
+      width: 100px;
+    }
+    div:nth-child(1){
+      position: absolute;
+      background: blue;
+      transform: translateZ(50px);
+      box-shadow: 0 0 10px 2px blue;
+    }
+    div:nth-child(2){
+      background: black;
+      transform: translate(50px ,50px);
+      filter: blur(10px);
+    }
+    input{
+      scale: 2;
+      width: 90vdw;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <div>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <div>div 2</div>
+  </article>
+  <input type="range" min="0" value="0" max="360">
+  <input type="range" min="-200" value="0" max="200"/>
+  <input type="range" min="-200" value="0" max="200">
+  <input type="range" min="-200" value="50" max="200">
+</body>
+<script>
+  function capturar(elemento, indice){
+    return document.querySelectorAll(elemento)[indice];
+  }
+  function capvl(elemento,indice){
+    return capturar(elemento,indice).value;
+  }
+  function evento(ele1, ind,ele2,ind2, frase1){
+    capturar(ele1,ind).addEventListener("input",()=>{
+      capturar("p",ind).innerHTML = frase1+capvl(ele1,ind);
+      switch(ele2){
+        case "article":
+          capturar(ele2,ind2).style.transform = `rotateY(${capvl("input",0)}deg)`;
+        break;
+        case "div":
+          capturar("div",1).style.transform = `translateX(${capvl("input",1)}px) translateY(${capvl("input",2)}px) translateZ(${capvl("input",3)}px)`;
+      }
+    });
+  };
+  //rotateY art
+  evento("input",0,"article",0,"rotY-art ");
+  //translateX div
+  evento("input",1,"div",1,"traX-div ");
+  //translateY div
+  evento("input",2,"div",1,"traY-div ");
+  //translateZ div
+  evento("input",3,"div",1,"traZ-div ");
+</script>
+</html>

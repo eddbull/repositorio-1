@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body{
+      counter-reset: section 1 sex 0;
+    }
+    hr{
+      margin: 0;
+      padding: 0;
+      border: .5px solid black;
+    }
+    p{
+      color: white;
+      line-height: 2.2ch;
+      padding-left: 1ch;
+      margin: 0;
+      margin-left: -1ch;
+    }
+    details p:before{
+      counter-increment: section 1 sex 1;
+      content: counter(section)".";
+    }
+    span:before{
+      content: counter(sex)"-";
+    }
+    details:before{
+      content: "";
+      background: linear-gradient(blue, green);
+      position: absolute;
+      width: 100%;
+      height:100%;
+      z-index: -1;
+      left: 0;
+    }
+    details{
+      position: relative;
+      padding-left: 1ch;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    div
+  </div>
+  
+  <details>
+    <summary>
+      principais
+    </summary>
+    <p>aprender</p>
+    <span>desaprender</span>
+    <hr>
+    <p>peidar</p>
+    <span>despeidar</span>
+    <hr>
+    <p>cagar</p>
+    <span>descagar</span>
+  </details>
+</body>
+
+</html>

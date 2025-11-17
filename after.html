@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body{
+      color: white;
+      background: gray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100dvh;
+    }
+    div{
+      height: 200px;
+      width: 200px;
+      border: 2px solid red;
+      background: #890000;
+      position: relative;
+    }
+    div:after{
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      content: "after";
+      border: 2px solid blue;
+      height: 200px;
+      width:200px;
+      background: #000B89;
+    }
+  </style>
+</head>
+
+<body>
+  <div>div</div>
+</body>
+
+</html>

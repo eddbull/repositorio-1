@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body{
+      border: 2px solid green;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    body *{
+      padding: 0;
+      margin: 0;
+    }
+    .d{
+      border: 2px solid black;
+      width: 100%;
+    }
+    article{
+      border: 2px solid black;
+      border-radius: 50%;
+      height: 7ch;
+      width: 7ch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    p{
+      background: red;
+      text-align: center;
+      text-shadow: 0px 0px 3px black, 0px 0px 3px black;
+      color: white;
+      width: 50%;
+      margin-inline: 20px;
+    }
+    input{
+      width: 50%;
+    }
+    span{
+      width: 5ch;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d">
+    <p>
+      100
+    </p>
+  </div>
+  <input type="range" min="0" value="100" max="400"/>
+  <article>
+    botao
+  </article>
+</body>
+<script type="text/javascript" charset="utf-8">
+  
+  function pegar(ele,ind){
+    return document.querySelectorAll(ele)[ind];
+  }
+  
+  function art(){
+    return pegar("article",0);
+  }
+
+  pegar("input",0).addEventListener("input",()=>{
+    pegar("p",0).style.width = `${pegar("input",0).value / 400 * 100}%`;
+    pegar("p",0).innerHTML = pegar("input",0).value;
+  });
+  
+  let a = 0;
+  art().addEventListener("click",()=>{
+
+    if(a===1){
+      art().style.backgroundColor = "white";
+      art().style.color = "black";
+      --a;
+    }else{
+      art().style.backgroundColor = "blue";
+      art().style.color = "white";
+      ++a;
+    }
+  })
+
+</script>
+</html>

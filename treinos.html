@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  
+</body>
+<script>
+
+  function cons(frase){
+    return console.log(frase);
+  }
+
+  let arr = [01,02,03,04,05];
+  cons(arr[0] == "01")
+  
+  //numero binario
+  cons(0b11111111111)
+  
+  //numeros decimais
+  cons(0o754)
+  cons(0754)
+  
+  //numeros hexadecimais
+  cons(0x10)
+  
+  //caracteres unicode
+  cons("\u00A9")
+  
+  //codificaçao caracters unicode
+  cons("\u{2F804}");//hex
+  cons("\uD87E\uDC04")//unic
+  
+  //identificador _99 = nome da variavel
+  let _99 = 55;
+  cons(_99)
+  
+  //escopo de y esta na funçao
+  function ab(){
+    if(true){
+      var y = 10;
+    }
+    cons(y);
+  }
+  
+  //undefined é visto como false
+  let i;
+  cons(i?"sim":"nao")
+  
+  //undefined é NaN
+  cons(isNaN(undefined+2)?"nao é um numero":"é um numero")
+  
+  var b = null;
+  cons(b+2)
+  
+  //hoisting
+  cons(c)
+  var c = 33;
+  
+  //conversao string e numero
+  let st = (+"2")+(+"2");
+  cons(typeof ("30"-0)+"\n"+typeof("30"+0)+"\n"+typeof st)
+  
+  //array literal = []
+  let arr1 = [,,"numero"]
+  cons(arr1+"\n"+arr1.length)
+  
+  let arr2 = [32,]
+  cons(arr2)
+
+  var as = "abobora";
+  function data(){
+    //undefined
+    cons(as)
+    var as = "canguru";
+  }
+  
+  data()
+  
+  //objeto literal
+  //nomes de propriedades:
+  //string > "carro"
+  //nomes > carro
+  //números > 1,2...
+  //string invalidas > ""
+  function ligar(funcionando){
+    return funcionando==="virar chave"?"vruum!!":"...";
+  }
+  
+  var carro = {
+    meuCarro: "fiat",
+    tipoCarro: ligar("virar chave"),
+    especial: "vendas"
+  };
+  cons(carro.meuCarro+"\n"+carro.tipoCarro+"\n"+carro.especial)
+  
+  //objetos aninhados
+  //propriedade com identificador numerico
+  var planta = {
+    cor:{
+      a:"verde",
+      b:"azul"
+    },
+    altura:0.30,
+    1:"quantidade"
+  }
+  cons(planta.cor.a+"\n"+planta[1])
+  
+  //objetos com identificadore de propriedade invalidas
+  var inv = {
+    "":"string vazia",
+    "!":"bang",
+    "o":"amarelo"
+  }
+  
+  /*invalido:
+    cons(inv."")*/
+  
+  //valido
+  //acessado assim:
+  cons(inv["!"])
+  
+  cons(inv["o"])
+  
+  /*atribuir variavel
+    cons(inv[a]);*/
+  
+  //reg literal
+  var re = /ho/g;//literal
+  var frase5 = "homer simpsons";
+  var res = [...frase5.matchAll(re)][0];
+  cons(res)
+  
+  //escapar quebras de linha
+  cons(
+    "jsjs\
+  sksksk\
+  smmsmsm"
+  );
+</script>
+</html>

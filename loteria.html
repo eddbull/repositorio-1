@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body{
+      background: gray;
+      font-size:20px;
+    }
+    div,span,p{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #a{
+      border: 2px solid red;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background: linear-gradient(rgba(255,0,0,.7),rgba(100,0,0,.7));
+      color: white;
+    }
+    p{
+      width: 100%;
+      padding-left:1ch;
+      margin-bottom: 5px;
+    }
+    #a1{
+      margin-top: 10px;
+      border: 2px solid blue;
+      display: flex;
+      flex-direction: row;
+      border-radius: 0 0 9px 9px;
+      background: linear-gradient(rgba(0,0,255,.7),rgba(0,0,100,.7));
+      color: white;
+    }
+    #a1 div{
+      width: 100%;
+    }
+    span{
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+    input{
+      display: inline-block;
+      margin: auto;
+      font-size: 20px;
+    }
+    #a1 div:nth-child(1){
+      border-right: .5px solid white;
+    }#a1 div:nth-child(2){
+      border-left: .5px solid white;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div id="a">
+    <p>numero loteria:</p>
+    <input type="text" placeholder="digite os numeros" maxlength="44">
+    <div id="a1">
+      <div>
+        <p>jogo loteria 1:</p>
+        <span>22 44</span>
+      </div>
+      <div>
+        <p>jogo loteria 2:</p>
+        <span> 45 21</span>
+      </div>
+    </div>
+    <p></p>
+    <p></p>
+  </div>
+</body>
+
+<script type="text/javascript" charset="utf-8">
+
+  function capturar(ele,ind){
+    return document.querySelectorAll(ele)[ind];
+  }
+  
+  function mudar(arr){
+    let i = 0;
+    let ns = 0;
+    let frase = "";
+    
+    while(ns<2){
+      while(i<arr[ns+1].length){
+        frase += arr[ns+1][i]+" ";
+        ++i;
+      }
+
+      capturar("span",ns).innerHTML = frase;
+      i=0;
+      frase = "";
+      ++ns;
+    }  
+  }
+  
+  function compara(arr){
+    let i = 0;
+    let e = 0;
+    let a = 1;
+    let ni = 0;
+    while(a<arr.length){
+      while(i<arr[0].length){
+        while(e<arr[a].length){
+          if(arr[0][i]==arr[a][e]){
+            ni+=1;
+          }
+          ++e;
+        }
+        e=0;
+        ++i;
+      }
+    i=0;
+      
+    console.log(`existem ${ni} numero(s) igua(is,l) no jogo ${a}`);
+    if(a===1){
+      capturar("p",3).innerHTML += `existem ${ni} numeros(s) igua(is,l) no jogo ${a}.`;
+    }else{
+      capturar("p",4).innerHTML += `existem ${ni} numeros(s) igua(is,l) no jogo ${a}.`;
+    }
+    ++a;
+    ni=0;
+    }
+  }
+
+  
+  let arr = [[11,12,34,33,66],[05,13,21,07,17,03,09,01,06,04,08,10,22,18,02],[11,15,19,23,25,05,07,09,12,14,16,20,24,18,04]];
+
+  mudar(arr);
+
+  capturar("input",0).addEventListener("input",()=>{
+
+    let reg =/(\d{2})/g;
+    let frase = capturar("input",0).value;
+    if(capturar("input",0).value.length===44){
+      console.log(capturar("input",0).value.length)
+      if(capturar("p",3).innerHTML.length>5 && capturar("p",4).innerHTML.length>5){
+        capturar("p",3).innerHTML="";
+        capturar("p",4).innerHTML = "";
+      }
+      let arr1 = [...frase.match(reg)];
+      arr[0] = arr1;
+      compara(arr);
+    }
+  });
+
+  
+</script>
+
+</html>

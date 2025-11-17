@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body{
+      background: #BFBFBF;
+    }
+    /*seleciona o elemento input que tem o irmao h1*/
+    input:checked ~ h4{
+      color: yellow;
+    }
+    h1:has(+ h2:hover){
+      color: blue;
+    }
+    h2:hover{
+      color:green;
+    }
+    div{
+      font-weight: 900;
+      font-family: Arial, Helvetica, sans-serif;
+      border:1px solid black;
+      margin-inline: 2px;
+      height: 100px;
+      width: 100px;
+      transition: .5s ease;
+      border-radius: 5px;
+    }
+    div:has(+ *:hover), div:hover + div{
+      background: #FF0000B0;
+      color: white;
+      transition: .5s;
+      transform: translateZ(-40px);
+    }
+    div:has( + * + *:hover),div:hover + * + div{
+      color: green;
+      background: #E2FF00AD;
+      transform: translateZ(-80px);
+    }
+    div:hover{
+      background: #00FF18B3;
+    }
+    article{
+      margin: auto;
+      transform-style: preserve-3d;
+      perspective: 300px;
+      perspective-origin: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox">
+  <h1>h1</h1>
+  <h2>h2</h2>
+  <h4>h4</h4>
+  <article>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <div>div5</div>
+  </article>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    div{
+      height: 100px;
+      width: 100px;
+      border: 2px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    div
+  </div>
+  <button>azul</button>
+  <button>verde</button>
+</body>
+<script>
+  function capturar(ele,ind){
+    return document.querySelectorAll(ele)[ind];
+  }
+  function capvl(ele,ind){
+    return capturar(ele,ind).value;
+  }
+  function rodar(ele, ind){
+    capturar(ele,ind).addEventListener("click",()=>{
+      switch(ind){
+        case 0:
+          capturar("div",1).style.background = "blue";
+        break;
+        case 1:
+          capturar("div",1).style.background = "green";
+      }
+    });
+  }
+  rodar("button",0);
+  rodar("button",1);
+</script>
+</html>

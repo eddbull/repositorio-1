@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    /*:where(ui,ul li){
+      color: blue;
+    }*/
+    *:where(article,div,section) > p{
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <p>p1</p>
+    <u>u1</u>
+  </article>
+  <div>
+    <p>p2</p>
+  </div>
+  <section>
+    <p>p3</p>
+  </section>
+</body>
+
+</html>
